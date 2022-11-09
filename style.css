@@ -150,12 +150,21 @@ body {
     background-color: #28CA42;
 }
 
-.result {
+.display {
     height: 50px;
     font-size: 45px;
     font-weight: 200;
     text-align: end;
     margin: 0 15px 5px 0;
+}
+
+#result {
+    display: block;
+    height: 100%;
+    max-width: inherit;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .cell {
@@ -204,3 +213,4 @@ body {
 .div19:active {
     background-color: hsl(35, 77%, 41%);
 }
+
