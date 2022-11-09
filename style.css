@@ -115,6 +115,7 @@ body {
     width: 233px;
     height: 320px;
     border-radius: 9px;
+    border: 1px solid black;
     box-shadow: 0 10px 40px #212121;
     color: #ffffff;
     display: flex;
