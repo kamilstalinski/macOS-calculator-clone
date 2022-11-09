@@ -5,28 +5,44 @@ const equals = document.querySelector(".equals");
 const negative = document.querySelector(".negative");
 const percent = document.querySelector(".percent");
 const coma = document.querySelector(".coma");
-const display = document.getElementById("result");
-const prevNumber = document.getElementById("prevNum");
+const display = document.querySelector(".result");
 
 let currentNumber = "";
 let previousNumber = "";
-let result = "";
+let operator = "";
 
 const displayNumbers = (e) => {
   currentNumber += e.target.textContent;
   display.innerHTML = currentNumber;
 
-  console.log(previousNumber, currentNumber);
+  if (display.innerHTML.length >= 8) {
+    display.classList.add("small");
+  }
+  if (display.innerHTML.length >= 12) {
+    display.classList.add("xsmall");
+  }
 };
 
 const handleOperate = (e) => {
+  operator = e.target.textContent;
   previousNumber = currentNumber;
+  currentNumber = "";
+};
+
+const handleClear = () => {
+  currentNumber = "";
+  previousNumber = "";
+  display.innerHTML = "0";
+  display.classList.remove("small");
+  display.classList.remove("xsmall");
+};
+
+const handleEquals = () => {
+  let result = "";
+
   let a = Number(previousNumber);
   let b = Number(currentNumber);
-  display.innerHTML = "";
-  currentNumber = "";
-
-  switch (e.target.textContent) {
+  switch (operator) {
     case "+":
       result = a + b;
       break;
@@ -40,26 +56,28 @@ const handleOperate = (e) => {
       result = a / b;
       break;
   }
-
-  equals.addEventListener("click", () => {
-    display.innerHTML = result;
-  });
+  display.innerHTML = result;
 };
 
-const handleClear = () => {
-  currentNumber = "";
-  previousNumber = "";
-  display.innerHTML = "";
+const switchToNegative = () => {
+  if (!display.innerHTML.includes("-")) {
+    currentNumber = "-" + currentNumber;
+    display.innerHTML = currentNumber;
+  }
 };
 
-const handleEquals = () => {};
+const addComa = (e) => {
+  currentNumber = currentNumber + ".";
+  display.innerHTML = currentNumber;
 
-const flipToNegative = () => {};
+  if (e.target.textContent === "." && display.innerHTML.includes(".")) return;
+};
 
 numbers.forEach((number) => number.addEventListener("click", displayNumbers));
 operators.forEach((operator) =>
   operator.addEventListener("click", handleOperate),
 );
 clear.addEventListener("click", handleClear);
-
-negative.addEventListener("click", flipToNegative);
+equals.addEventListener("click", handleEquals);
+negative.addEventListener("click", switchToNegative);
+coma.addEventListener("click", addComa);

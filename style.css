@@ -150,25 +150,27 @@ body {
     background-color: #28CA42;
 }
 
-.display {
+.result {
     height: 50px;
     font-size: 45px;
     font-weight: 200;
     text-align: end;
     margin: 0 15px 5px 0;
+    max-width: inherit;
 }
 
-#result {
-    display: block;
-    height: 100%;
-    max-width: inherit;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    word-break: break-word;
+
+.result.small {
+    font-size: 30px;
+    line-height: 50px;
+}
+.result.xsmall {
+    font-size: 20px;
+    line-height: 50px;
 }
 
 .cell {
-    height: 46.5px;
+    height: 46.2px;
     background-color: rgba(161, 154, 154, 0.4);
     display: flex;
     justify-content: center;
