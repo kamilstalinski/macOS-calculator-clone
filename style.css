@@ -121,6 +121,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
+    scale: 1.5;
 }
 
 .cta-icons {
@@ -155,22 +156,22 @@ body {
     font-size: 45px;
     font-weight: 200;
     text-align: end;
-    margin: 0 15px 5px 0;
+    margin: 0 15px 0px 0;
     max-width: inherit;
 }
 
 
 .result.small {
     font-size: 30px;
-    line-height: 50px;
+    line-height: 65px;
 }
 .result.xsmall {
     font-size: 20px;
-    line-height: 50px;
+    line-height: 70px;
 }
 
 .cell {
-    height: 46.2px;
+    height: 47.2px;
     background-color: rgba(161, 154, 154, 0.4);
     display: flex;
     justify-content: center;
