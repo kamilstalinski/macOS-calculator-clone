@@ -122,7 +122,7 @@ const calculatePercentage = () => {
         break;
     }
   }
-
+  currentNumber = result;
   display.innerHTML = result;
 };
 
